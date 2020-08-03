@@ -1,3 +1,5 @@
+cmake_policy(SET CMP0048 NEW)
+
 include (CheckIncludeFiles)
 include (CheckCSourceCompiles)
 include (CMakeDependentOption)
@@ -32,6 +34,8 @@ endif ()
 project ("ik"
     VERSION 0.2.0
     LANGUAGES C ${CXX_LANGUAGE})
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
 # Must use GNUInstallDirs to install libraries into correct locations on all
 # platforms.
